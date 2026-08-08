@@ -121,6 +121,8 @@
   // Rotating archival hero backgrounds: an 1853 Ottoman Empire map, a handwritten
   // Arabic petition (Dar al-Watha'iq, Cairo), an 1857 French notarial act (Cairo
   // consulate), a Nile Valley landscape near Abu Qirqas, and the Suez shipyards, 1914.
+  // Two stacked layers crossfade into each other on a timer, each slowly zooming in
+  // (a subtle Ken Burns effect) so the backdrop keeps moving.
   var backgrounds = [
     'assets/hero-map.jpg',
     'assets/hero-arabic-doc.jpg',
@@ -130,13 +132,45 @@
   ];
   var hero = document.getElementById('hero');
   if(!hero) return;
-  var pick = backgrounds[Math.floor(Math.random() * backgrounds.length)];
-  var img = new Image();
-  img.onload = function(){
-    hero.style.backgroundImage = "url('" + pick + "')";
-    hero.classList.add('has-photo');
-  };
-  img.src = pick;
+
+  // shuffle so the rotation order differs each visit
+  var order = backgrounds.slice();
+  for(var i = order.length - 1; i > 0; i--){
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = order[i]; order[i] = order[j]; order[j] = tmp;
+  }
+
+  var layerA = document.createElement('div');
+  var layerB = document.createElement('div');
+  layerA.className = 'hero-bg-layer';
+  layerB.className = 'hero-bg-layer';
+  hero.insertBefore(layerB, hero.firstChild);
+  hero.insertBefore(layerA, hero.firstChild);
+  var layers = [layerA, layerB];
+
+  var active = 0;   // index of the currently visible layer
+  var idx = 0;       // index into the shuffled order
+
+  function showNext(){
+    var src = order[idx % order.length];
+    idx++;
+    var img = new Image();
+    img.onload = function(){
+      var next = (active + 1) % 2;
+      var layer = layers[next];
+      layer.style.backgroundImage = "url('" + src + "')";
+      layer.classList.remove('zooming');
+      void layer.offsetWidth; // restart the zoom animation each time this layer is reused
+      layer.classList.add('active', 'zooming');
+      layers[active].classList.remove('active');
+      active = next;
+      hero.classList.add('has-photo');
+    };
+    img.src = src;
+  }
+
+  showNext();
+  setInterval(showNext, 3000);
 })();
 </script>
 
