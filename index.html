@@ -26,7 +26,7 @@
   </div>
 </header>
 
-<section class="hero">
+<section class="hero" id="hero">
   <div class="wrap">
     <div class="hero-name">Adam Mestyan</div>
     <div class="hero-subtitle">Historian of the Modern Middle East · Harvard University</div>
@@ -115,6 +115,30 @@
 <footer class="site-footer">
   <div class="wrap">© 2013–2026 Adam Mestyan · <a href="contact.html">Contact</a> · <a href="https://harvard.academia.edu/AdamMestyan" target="_blank" rel="noopener">Academia.edu</a></div>
 </footer>
+
+<script>
+(function(){
+  // Rotating archival hero backgrounds: an 1853 Ottoman Empire map, a handwritten
+  // Arabic petition (Dar al-Watha'iq, Cairo), an 1857 French notarial act (Cairo
+  // consulate), a Nile Valley landscape near Abu Qirqas, and the Suez shipyards, 1914.
+  var backgrounds = [
+    'assets/hero-map.jpg',
+    'assets/hero-arabic-doc.jpg',
+    'assets/hero-french-doc.jpg',
+    'assets/hero-egypt-landscape.jpg',
+    'assets/hero-factory.jpg'
+  ];
+  var hero = document.getElementById('hero');
+  if(!hero) return;
+  var pick = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+  var img = new Image();
+  img.onload = function(){
+    hero.style.backgroundImage = "url('" + pick + "')";
+    hero.classList.add('has-photo');
+  };
+  img.src = pick;
+})();
+</script>
 
 </body>
 </html>
