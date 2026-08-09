@@ -47,6 +47,16 @@ header.site-nav{
 .nav-social{display:inline-flex; align-items:center; color:var(--ink); text-decoration:none; transition:color .15s ease;}
 .nav-social svg{width:17px; height:17px; fill:currentColor; display:block;}
 .nav-social:hover{color:var(--maroon);}
+.lang-toggle{display:inline-flex; align-items:center; justify-content:center; min-width:26px; height:26px; padding:0 7px; border:1px solid var(--border); border-radius:6px; font-size:12.5px; font-weight:700; color:var(--ink); text-decoration:none; transition:all .15s ease;}
+.lang-toggle:hover{background:var(--maroon); color:#fff; border-color:var(--maroon);}
+
+html[dir="rtl"] body{font-family:'Noto Kufi Arabic','Tajawal',Tahoma,sans-serif;}
+html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] h3, html[dir="rtl"] .hero-name{font-family:'Noto Kufi Arabic','Tajawal',Tahoma,sans-serif;}
+html[dir="rtl"] .nav-row{flex-direction:row-reverse;}
+html[dir="rtl"] .nav-row nav > ul{flex-direction:row-reverse;}
+html[dir="rtl"] .two-col{direction:rtl;}
+html[dir="rtl"] .lede, html[dir="rtl"] p{text-align:right;}
+html[dir="rtl"] .dropdown-menu{right:0; left:auto;}
 
 .hero{
   z-index:0;
