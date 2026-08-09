@@ -44,6 +44,9 @@ header.site-nav{
 .dropdown-menu a{display:block; padding:9px 18px; font-size:12.5px; letter-spacing:0.3px; text-transform:none; font-weight:500; color:var(--ink);}
 .dropdown-menu a:hover{background:var(--cream); text-decoration:none;}
 .nav-dropdown.open .dropdown-menu{display:block;}
+.nav-social{display:inline-flex; align-items:center; color:var(--ink); text-decoration:none; transition:color .15s ease;}
+.nav-social svg{width:17px; height:17px; fill:currentColor; display:block;}
+.nav-social:hover{color:var(--maroon);}
 
 .hero{
   z-index:0;
