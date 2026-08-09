@@ -83,7 +83,7 @@ header.site-nav{
 }
 .hero > .wrap{position:relative; z-index:1;}
 .hero-name{
-  text-align:center; font-size:68; letter-spacing:8px; font-weight:800;
+  text-align:center; font-size:74; letter-spacing:8px; font-weight:800;
   color:var(--pop); text-shadow:2px 3px 0 rgba(0,0,0,0.08), 0 0 26px rgba(224,71,47,0.25);
   margin-bottom:8px; text-transform:uppercase;
   transition:color .2s;
