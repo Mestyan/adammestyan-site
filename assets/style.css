@@ -57,8 +57,8 @@ html[dir="rtl"] .nav-row nav > ul{flex-direction:row-reverse;}
 html[dir="rtl"] .two-col{direction:rtl;}
 html[dir="rtl"] .lede, html[dir="rtl"] p{text-align:right;}
 html[dir="rtl"] .dropdown-menu{right:0; left:auto;}
-html[dir="rtl"]{--paper:#f0d9cc; --cream:#e3bfa9;}
-html[dir="rtl"] header.site-nav{background:rgba(240,217,204,0.95);}
+html[dir="rtl"]{--paper:#ecdfc4; --cream:#ddc99e;}
+html[dir="rtl"] header.site-nav{background:rgba(236,223,196,0.95);}
 
 .hero{
   z-index:0;
