@@ -94,8 +94,8 @@ header.site-nav{
 .hero.has-photo .hero-name{color:var(--crimson); text-shadow:0 2px 18px rgba(0,0,0,0.75), 0 0 3px rgba(0,0,0,0.9);}
 .hero.has-photo .hero-subtitle{color:#e9e2d2; text-shadow:0 1px 10px rgba(0,0,0,0.4);}
 .hero-feature{
-  display:grid; grid-template-columns:320px 1fr; gap:56px; align-items:center;
-  max-width:920px; margin:0 auto;
+display:block; max-width:700px;
+  margin:0 auto;
 }
 .book-cover{
   aspect-ratio:2/3; border-radius:2px; position:relative;
